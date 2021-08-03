@@ -285,6 +285,7 @@ struct opt {
 	bool thumb_mode;
 	bool clean_cache;
 	bool private_mode;
+	bool mark_single;
 };
 
 extern const opt_t *options;

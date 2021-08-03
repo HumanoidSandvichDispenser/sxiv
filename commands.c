@@ -79,6 +79,10 @@ bool cg_switch_mode(arg_t _)
 		tns.dirty = true;
 		mode = MODE_THUMB;
 	} else {
+		if (options->mark_single) {
+			mark_image(fileidx, true);
+			cmds[g_quit].func(0);
+		}
 		load_image(fileidx);
 		mode = MODE_IMAGE;
 	}

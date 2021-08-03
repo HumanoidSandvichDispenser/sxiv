@@ -644,6 +644,10 @@ void on_buttonpress(XButtonEvent *bev)
 						firstclick = bev->time;
 						redraw();
 					} else if (bev->time - firstclick <= TO_DOUBLE_CLICK) {
+						if (options->mark_single) {
+							mark_image(sel, true);
+							cmds[g_quit].func(0);
+						}
 						mode = MODE_IMAGE;
 						set_timeout(reset_cursor, TO_CURSOR_HIDE, true);
 						load_image(fileidx);
